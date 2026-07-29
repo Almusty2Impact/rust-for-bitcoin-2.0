@@ -1,0 +1,59 @@
+name: Grade Week 1 Labs
+
+on:
+  push:
+    paths:
+      - "rfb_labs_week_1/**"
+      - ".github/workflows/grade-week-1.yml"
+  pull_request:
+    paths:
+      - "rfb_labs_week_1/**"
+      - ".github/workflows/grade-week-1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: week-1-grading-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  grade:
+    name: Score ten practical labs
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out submission
+        uses: actions/checkout@v4
+
+      - name: Install stable Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - name: Check formatting
+        working-directory: rfb_labs_week_1
+        run: cargo fmt --check
+        continue-on-error: true
+
+      - name: Grade lab tests and evidence
+        working-directory: rfb_labs_week_1
+        run: bash grader/grade.sh
+
+      - name: Publish score summary
+        if: always()
+        run: cat rfb_labs_week_1/grading/score.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload grading report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rfb-week-1-score
+          path: |
+            rfb_labs_week_1/grading/score.md
+            rfb_labs_week_1/grading/score.json
+            rfb_labs_week_1/grading/logs/
+          if-no-files-found: warn
+          retention-days: 30
