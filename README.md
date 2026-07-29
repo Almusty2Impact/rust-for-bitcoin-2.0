@@ -1,12 +1,169 @@
-# Rust for Bitcoin 2.0
+# Rust for Bitcoin Program 2.0
 
-This repository contains practical coursework for the Rust for Bitcoin 2.0 programme.
+![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
+![Bitcoin](https://img.shields.io/badge/Bitcoin-F7931A?style=for-the-badge&logo=bitcoin&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## Week 1
+> A hands-on training program for building Bitcoin applications using Rust and contributing to the Bitcoin open-source ecosystem.
 
-[`rfb_labs_week_1`](rfb_labs_week_1/) is a ten-lab Rust and Bitcoin Core assignment
-that students complete against a local Polar regtest network.
+---
 
-The starter code intentionally contains `todo!()` implementations. Students complete
-the functions, run the lab against Polar, and record their evidence in the supplied
-submission templates.
+## 📁 Repository Structure
+
+```
+.
+├── .github/          # GitHub workflows and CI/CD configurations
+├── rfb_labs_week_1/  # Week 1 labs and exercises
+│   ├── grader/       # Grading scripts and evidence checking
+│   ├── src/          # Source code for labs
+│   │   ├── labs/     # Individual lab implementations (lab01-lab10)
+│   │   ├── error.rs  # Error handling
+│   │   ├── lib.rs    # Library entry point
+│   │   ├── model.rs  # Data models
+│   │   └── rpc.rs    # RPC client implementation
+│   ├── submissions/  # Lab submission templates
+│   ├── tests/        # Lab tests and support utilities
+│   ├── Cargo.toml    # Rust project configuration
+│   ├── Cargo.lock    # Dependency lock file
+│   ├── LABS.md       # Lab documentation
+│   └── README.md     # Week 1 specific README
+├── .gitignore        # Git ignore patterns
+├── README.md         # This file
+└── x.sh              # Setup/utility script
+```
+
+### Directory Descriptions
+
+- **`.github/`** - GitHub Actions workflows for automated grading and CI/CD
+- **`rfb_labs_week_1/`** - Week 1 lab exercises covering Bitcoin fundamentals and Rust basics
+  - **`grader/`** - Automated grading scripts for evaluating lab submissions
+  - **`src/`** - Source code including lab implementations and supporting modules
+  - **`submissions/`** - Templates for participants to submit their lab evidence
+  - **`tests/`** - Unit tests for each lab to verify implementation correctness
+
+---
+
+## 📖 Technical Resources
+
+- 🦀 **The Rust Book** - Comprehensive Rust programming guide
+- 📄 **Bitcoin Whitepaper** - Original Bitcoin protocol specification
+- 🔄 **Bitcoin Improvement Proposals (BIPs)** - Protocol standards and proposals
+- 🔧 **Rust Bitcoin Documentation** - Library documentation and examples
+- ⛏️ **Bitcoin Core Documentation** - Core implementation reference
+
+---
+
+## 🌟 Open Source Contributions
+
+The major goal of this program is to contribute meaningfully to Bitcoin open-source projects. Participants will:
+
+- 🔄 Learn Git workflow and best practices
+- 📤 Create and submit Pull Requests
+- 👁️ Participate in code reviews
+- 📖 Read and understand BIPs
+- 💬 Join Bitcoin Core Review Club discussions
+- 🤝 Collaborate with global Bitcoin developers
+- 💰 Explore grant opportunities for active contributors
+
+### Open Source Etiquette
+
+- Follow project contribution guidelines
+- Write clear commit messages
+- Engage constructively in code reviews
+- Respect maintainers' time and decisions
+
+---
+
+
+##  Capstone Project
+
+All participants will complete a capstone project demonstrating their skills and knowledge gained throughout the program.
+
+### Project Options
+
+- **Bitcoin Wallet** - Full-featured wallet implementation
+- **Lightning Tool** - Lightning Network utility or application
+- **Bitcoin CLI** - Command-line interface for Bitcoin operations
+- **Bitcoin Indexer** - Blockchain data indexing and analysis
+- **Transaction Explorer** - Transaction visualization and analysis
+- **Block Explorer** - Blockchain block exploration interface
+- **Wallet Library** - Reusable wallet functionality library
+
+### Final Deliverables
+
+- 📦 GitHub Repository with complete source code
+- 📖 Comprehensive README with documentation
+- 🏗️ Architecture Diagram
+- 🎥 Demo Video
+- 🎤 Live Presentation during Demo Day
+
+---
+
+
+## 🛠️ Prerequisites
+
+Before starting the program, ensure you have:
+
+- 🦀 **Rust** installed (latest stable version)
+- 📦 **Cargo** (comes with Rust)
+- 🔄 **Git** version control
+- 🌐 **GitHub Account** (configured with SSH keys)
+- 🐳 **Docker** for containerized development
+- ⚡ **Polar** for Bitcoin regtest networks
+- 💻 **VS Code** (recommended IDE)
+
+---
+
+## 🚀 Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/thebuidl-grid/rust-for-bitcoin-2.0.git
+cd rust-for-bitcoin-2.0
+```
+
+### Build the Project
+
+```bash
+cargo build
+```
+
+### Run Tests
+
+```bash
+cargo test
+```
+
+### Setup Development Environment
+
+See [`rfb_labs_week_1/README.md`](rfb_labs_week_1/README.md) for detailed environment setup instructions.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Follow these steps:
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+### Contribution Guidelines
+
+- Write clear, descriptive commit messages
+- Include tests for new features
+- Update documentation as needed
+- Follow Rust coding conventions
+- Ensure all tests pass before submitting
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
