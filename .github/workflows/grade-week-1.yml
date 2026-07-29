@@ -2,20 +2,28 @@ name: Grade Week 1 Labs
 
 on:
   push:
+    branches:
+      - main
+      - rfb_labs_week_1
+      - rbf_labs_week_1 # Temporary support for the transposed spelling
     paths:
       - "rfb_labs_week_1/**"
       - ".github/workflows/grade-week-1.yml"
+
   pull_request:
+    branches:
+      - main
     paths:
       - "rfb_labs_week_1/**"
       - ".github/workflows/grade-week-1.yml"
+
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: week-1-grading-${{ github.ref }}
+  group: week-1-grading-${{ github.repository }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -27,6 +35,37 @@ jobs:
     steps:
       - name: Check out submission
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify protected assessment files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            base_sha="${{ github.event.pull_request.base.sha }}"
+          else
+            git fetch origin main --depth=1
+            base_sha="$(git merge-base origin/main HEAD)"
+          fi
+
+          changed_files="$(git diff --name-only "$base_sha" HEAD)"
+
+          allowed_pattern='^(rfb_labs_week_1/src/labs/lab[0-9]{2}_[^/]+\.rs|rfb_labs_week_1/src/main\.rs|rfb_labs_week_1/examples/.*|rfb_labs_week_1/submissions/lab_[0-9]{2}\.md|rfb_labs_week_1/submissions/evidence/.*)$'
+
+          disallowed_files="$(
+            printf '%s\n' "$changed_files" |
+              grep -Ev "$allowed_pattern" || true
+          )"
+
+          if [[ -n "$disallowed_files" ]]; then
+            echo "::error title=Protected files modified::Only lab implementations, submission evidence, and optional example programs may be changed."
+            echo
+            echo "Disallowed changes:"
+            printf '%s\n' "$disallowed_files"
+            exit 1
+          fi
 
       - name: Install stable Rust
         uses: dtolnay/rust-toolchain@stable
@@ -50,7 +89,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: rfb-week-1-score
+          name: rfb-week-1-score-${{ github.run_id }}
           path: |
             rfb_labs_week_1/grading/score.md
             rfb_labs_week_1/grading/score.json
