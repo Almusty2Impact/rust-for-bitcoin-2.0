@@ -27,6 +27,20 @@
 │   ├── Cargo.lock    # Dependency lock file
 │   ├── LABS.md       # Lab documentation
 │   └── README.md     # Week 1 specific README
+├── rfb_labs_week_2/  # Week 2 Bitcoin transaction modelling assignment
+│   ├── src/          # Student implementation files
+│   │   ├── lib.rs    # Library entry point and public exports
+│   │   ├── transaction.rs # Transaction types, methods, traits, and borrowing
+│   │   ├── error.rs  # Custom transaction errors
+│   │   ├── utxo.rs   # UTXO model and coin selection
+│   │   └── main.rs   # Payment transaction example
+│   ├── tests/        # Starter integration tests
+│   │   ├── transaction.rs # Transaction and validation tests
+│   │   └── utxo.rs   # UTXO selection tests
+│   ├── Cargo.toml    # Rust package configuration
+│   ├── Cargo.lock    # Locked dependency versions
+│   ├── ASSIGNMENT.md # Ordered requirements and progress checklist
+│   └── README.md     # Week 2 workflow and written-answer template
 ├── .gitignore        # Git ignore patterns
 ├── README.md         # This file
 └── x.sh              # Setup/utility script
@@ -40,6 +54,11 @@
   - **`src/`** - Source code including lab implementations and supporting modules
   - **`submissions/`** - Templates for participants to submit their lab evidence
   - **`tests/`** - Unit tests for each lab to verify implementation correctness
+- **`rfb_labs_week_2/`** - Week 2 assignment for modelling a Bitcoin transaction in Rust
+  - **`src/`** - Starter implementation, organized by transaction, error, and UTXO concerns
+  - **`tests/`** - Staged integration tests that students enable as they progress
+  - **`ASSIGNMENT.md`** - Requirements in implementation order
+  - **`README.md`** - Student workflow, commands, and written questions
 
 ---
 
@@ -139,6 +158,9 @@ cargo test
 
 See [`rfb_labs_week_1/README.md`](rfb_labs_week_1/README.md) for detailed environment setup instructions.
 
+For the transaction modelling assignment, see
+[`rfb_labs_week_2/README.md`](rfb_labs_week_2/README.md).
+
 ---
 
 ## 🤝 Contributing
@@ -166,4 +188,3 @@ We welcome contributions! Follow these steps:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-

@@ -1,0 +1,9 @@
+[package]
+name = "rfb-labs-week-2"
+version = "0.1.0"
+edition = "2021"
+description = "Rust for Bitcoin 2.0 — Week 2 transaction modelling assignment"
+license = "MIT"
+publish = false
+
+[dependencies]
