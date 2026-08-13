@@ -54,6 +54,27 @@
 │   ├── Cargo.toml    # Rust package configuration
 │   ├── ASSIGNMENT.md # Ordered requirements and progress checklist
 │   └── README.md     # Session 4 workflow and written-answer template
+├── rfb_labs_week_3/  # Week 3: Understanding Bitcoin Data
+│   ├── trxparse/     # Program for parsing raw Bitcoin transactions
+│   │   ├── src/
+│   │   │   └── main.rs       # Parses a raw Bitcoin transaction into a JSON object
+│   │   └── Cargo.toml
+│   │
+│   ├── decodetrx/    # Program for decoding raw Bitcoin transactions
+│   │   ├── src/
+│   │   │   ├── lib.rs        # Main decode_transaction function and decoding logic
+│   │   │   ├── transaction.rs # Bitcoin transaction data structures
+│   │   │   └── main.rs       # Clap CLI for collecting input and calling decode_transaction
+│   │   └── Cargo.toml
+│   │
+│   ├── tests/        # Tests for transaction parsing and decoding
+│   │   ├── trxparse.rs       # Raw transaction parsing tests
+│   │   └── decodetrx.rs      # Legacy and SegWit decoding tests
+│   │
+│   ├── Cargo.toml    # Workspace/package configuration
+│   ├── Cargo.lock    # Locked dependency versions
+│   ├── ASSIGNMENT.md # Ordered requirements and progress checklist
+│   └── README.md     # Week 3 workflow and written-answer template
 ├── .gitignore        # Git ignore patterns
 ├── README.md         # This file
 └── x.sh              # Setup/utility script
