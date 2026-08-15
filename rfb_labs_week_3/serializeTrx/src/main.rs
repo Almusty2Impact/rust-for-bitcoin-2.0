@@ -126,6 +126,8 @@ fn serialize_transaction(trx: &Transaction) -> Vec<u8> {
      let mut result = Vec::new();
 
         // add version number
+          // to_le_bytes: converts the integer into its little-endian byte representation.
+    //  extend_from_slice: Take these bytes and append them to result.
         result.extend_from_slice(&trx.version.to_le_bytes());
 
      if trx.segwit {
