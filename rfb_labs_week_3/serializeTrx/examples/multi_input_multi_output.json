@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "segwit": true,
+  "locktime": 500000,
+  "inputs": [
+    {
+      "prev_txid": "8fb0d07bb3766421bff2d908b70e5de818e4d85a436ea3606310c1052b0dc821",
+      "vout": 1,
+      "script_sig": "",
+      "sequence": "ffffffff",
+      "witness": [
+        "3045022100f8704a3e7d55d4b5ee448cc6365caeffa42c2b00f74a37726d4fa3c11982e3e502203591c4a4bde9200281755ae5a8759116ce6e0cc7f5d30cf0eeb5b2b74f74bab301",
+        "029cbb1e568de08f469a8751aa2000331f130ca92ad49012d9cececaf6f8eb2358"
+      ]
+    },
+    {
+      "prev_txid": "bbbb2222bbbb2222bbbb2222bbbb2222bbbb2222bbbb2222bbbb2222bbbb2222",
+      "vout": 0,
+      "script_sig": "",
+      "sequence": "fffffffe",
+      "witness": [
+        "304402207a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b0221001a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b01",
+        "03ab12cd34ef56ab78cd90ef12ab34cd56ef78ab90cd12ef34ab56cd78ef90ab12cd34"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "value": 80000,
+      "script_pubkey": "0014a632c1fff47af29f8c81dc4c6e91eb49a116c12b"
+    },
+    {
+      "value": 15000,
+      "script_pubkey": "00149831122b93d21715c70db626ccc844d3c21f9687"
+    },
+    {
+      "value": 4328,
+      "script_pubkey": "6a0453415004ae120000"
+    }
+  ]
+}
